@@ -21,11 +21,11 @@ include(GoogleTest)
 include(cmake/discovery.cmake)
 
 # Implementation library
-add_subdirectory("lib/scftolus")
+add_subdirectory("libraries/scftolus")
 
 # Entry point executable
 add_executable(scftolus_ext "${PROJECT_SOURCE_DIR}/source/main.cpp")
 
 target_link_libraries(scftolus_ext PRIVATE scftolus_static)
 target_include_directories(
-    scftolus_ext PRIVATE "${PROJECT_SOURCE_DIR}/lib/scftolus/include")
+    scftolus_ext PRIVATE "${PROJECT_SOURCE_DIR}/libraries/scftolus/include")
