@@ -17,7 +17,7 @@ add_library(scftolus_static STATIC "${scftolus_SOURCE}")
 set_property(TARGET scftolus_static PROPERTY POSITION_INDEPENDENT_CODE ON)
 
 target_include_directories(scftolus_static
-                           PUBLIC "${PROJECT_SOURCE_DIR}/include")
+                           PRIVATE "${PROJECT_SOURCE_DIR}/include")
 # Placecholder for possible dependency libraries
 set(scftolus_EXT_LIBS CLI11::CLI11)
 target_link_libraries(scftolus_static "${scftolus_EXT_LIBS}")
