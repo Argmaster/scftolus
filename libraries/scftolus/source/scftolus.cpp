@@ -1,17 +1,22 @@
 #include "scftolus.hpp"
 
+#define SCFTOLUS_VERSION "1.0.0"
+
 namespace scftolus {
     int Main(int argc, char const* argv[]) {
-        CLI::App app{"App description"};
 
-        std::string filename = "default";
-        app.add_option("--version", filename, "Prints externsion version and exit.");
+        Configuration config;
 
-        try {
-            app.parse(argc, argv);
-        } catch (const CLI::ParseError& e) {
-            return app.exit(e);
+        CLI::App app{"Luscus extension for scf format."};
+        app.add_flag("--version", config.version_only,
+                     "Print extension version and exit.");
+        CLI11_PARSE(app, argc, argv);
+
+        if (config.version_only) {
+            std::cout << SCFTOLUS_VERSION << std::endl;
+            return 0;
         }
-        return (int)CLI::ExitCodes::Success;
+
+        return 0;
     }
 } // namespace scftolus
