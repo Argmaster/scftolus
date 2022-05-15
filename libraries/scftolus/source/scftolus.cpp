@@ -18,9 +18,12 @@ namespace scftolus {
         if (config.version_only) {
             std::cout << SCFTOLUS_VERSION << std::endl;
             return 0;
-        } else {
-            auto        scf_path = config.get_scf_path();
-            SCF_Handler scf_handler(scf_path);
+        }
+        try {
+            SCF_Handler scf_handler{config.get_scf_path()};
+        } catch (const DescriptiveException& e) {
+            spdlog::error(e.what());
+            return e.get_exit_code();
         }
 
         return 0;

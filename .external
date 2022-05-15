@@ -1,0 +1,29 @@
+{
+	"submodules": [
+		{
+			"path": "external/googletest",
+			"tag": "release-1.11.0",
+			"branch": null
+		},
+		{
+			"path": "libraries/scftolus/external/CLI11",
+			"tag": "v2.2.0",
+			"branch": null
+		},
+		{
+			"path": "libraries/scftolus/external/pugixml",
+			"tag": "v1.12.1",
+			"branch": null
+		},
+		{
+			"path": "libraries/scftolus/external/spdlog",
+			"tag": "v1.10.0",
+			"branch": null
+		},
+		{
+			"path": "libraries/scftolus/external/fmtlib",
+			"tag": "8.1.1",
+			"branch": null
+		}
+	]
+}

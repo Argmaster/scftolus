@@ -6,14 +6,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_subdirectory("${PROJECT_SOURCE_DIR}/external/CLI11")
+add_subdirectory("${PROJECT_SOURCE_DIR}/external/spdlog")
+add_subdirectory("${PROJECT_SOURCE_DIR}/external/fmtlib")
 
 # --------------------------------------------------------------------------
 # create scftolus library binary
 # --------------------------------------------------------------------------
 file(GLOB_RECURSE scftolus_SOURCE "${PROJECT_SOURCE_DIR}/source/*.c*")
 
-# https://pugixml.org/docs/manual.html
-# https://pugixml.org/docs/quickstart.html
+# https://pugixml.org/docs/manual.html https://pugixml.org/docs/quickstart.html
 
 add_library(
     scftolus_static STATIC
@@ -22,8 +23,11 @@ add_library(
 # Ensure that output static lib can be embedded into dynamic libraries
 set_property(TARGET scftolus_static PROPERTY POSITION_INDEPENDENT_CODE ON)
 
-set(scftolus_INCLUDE "${PROJECT_SOURCE_DIR}/include"
-                     "${PROJECT_SOURCE_DIR}/external/pugixml/src")
+set(scftolus_INCLUDE
+    "${PROJECT_SOURCE_DIR}/include"
+    "${PROJECT_SOURCE_DIR}/external/pugixml/src"
+    "${PROJECT_SOURCE_DIR}/external/spdlog/include"
+    "${PROJECT_SOURCE_DIR}/external/fmtlib/include")
 target_include_directories(scftolus_static PUBLIC ${scftolus_INCLUDE})
 # Placecholder for possible dependency libraries
 set(scftolus_EXT_LIBS CLI11::CLI11)

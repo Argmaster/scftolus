@@ -4,9 +4,12 @@
 [submodule "libraries/scftolus/external/CLI11"]
 	path = libraries/scftolus/external/CLI11
 	url = https://github.com/CLIUtils/CLI11
-[submodule "libraries/scftolus/external/tinyxml2"]
-	path = libraries/scftolus/external/tinyxml2
-	url = https://github.com/leethomason/tinyxml2.git
 [submodule "libraries/scftolus/external/pugixml"]
 	path = libraries/scftolus/external/pugixml
 	url = https://github.com/zeux/pugixml
+[submodule "libraries/scftolus/external/spdlog"]
+	path = libraries/scftolus/external/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "libraries/scftolus/external/fmtlib"]
+	path = libraries/scftolus/external/fmtlib
+	url = https://github.com/fmtlib/fmt
