@@ -59,6 +59,8 @@ ninja
 
 # Documentation
 
+Online documentation is available at [argmaster.github.io/scftolus/](https://argmaster.github.io/scftolus/).
+
 To build yourself documentation, you need Python 3 interpreter,
 at least version 3.9.
 

@@ -17,7 +17,6 @@ theme:
 nav:
   - Home: index.md
   - Dependencies: "dependencies.md"
-  - Changelog: changelog.md
 markdown_extensions:
   - toc:
       permalink: "#"
