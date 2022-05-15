@@ -5,8 +5,8 @@
 #include "configuration.hpp"
 #include <memory>
 #include <string>
+#include "scf_handler.hpp"
 
 namespace scftolus {
     int Main(int argc, char const* argv[]);
-
 } // namespace scftolus

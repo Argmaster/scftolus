@@ -12,12 +12,19 @@ add_subdirectory("${PROJECT_SOURCE_DIR}/external/CLI11")
 # --------------------------------------------------------------------------
 file(GLOB_RECURSE scftolus_SOURCE "${PROJECT_SOURCE_DIR}/source/*.c*")
 
-add_library(scftolus_static STATIC "${scftolus_SOURCE}")
+# https://pugixml.org/docs/manual.html
+# https://pugixml.org/docs/quickstart.html
+
+add_library(
+    scftolus_static STATIC
+    "${scftolus_SOURCE}"
+    "${PROJECT_SOURCE_DIR}/external/pugixml/src/pugixml.cpp")
 # Ensure that output static lib can be embedded into dynamic libraries
 set_property(TARGET scftolus_static PROPERTY POSITION_INDEPENDENT_CODE ON)
 
-target_include_directories(scftolus_static
-                           PRIVATE "${PROJECT_SOURCE_DIR}/include")
+set(scftolus_INCLUDE "${PROJECT_SOURCE_DIR}/include"
+                     "${PROJECT_SOURCE_DIR}/external/pugixml/src")
+target_include_directories(scftolus_static PUBLIC ${scftolus_INCLUDE})
 # Placecholder for possible dependency libraries
 set(scftolus_EXT_LIBS CLI11::CLI11)
 target_link_libraries(scftolus_static "${scftolus_EXT_LIBS}")
@@ -28,4 +35,4 @@ target_link_libraries(scftolus_static "${scftolus_EXT_LIBS}")
 
 set(scftolus_TEST_LIBS scftolus_static "${scftolus_EXT_LIBS}")
 
-create_tests("${scftolus_TEST_LIBS}" "${PROJECT_SOURCE_DIR}/include")
+create_tests("${scftolus_TEST_LIBS}" ${scftolus_INCLUDE})
