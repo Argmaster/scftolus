@@ -1,6 +1,6 @@
 #include <exception>
-#include <exit_codes.hpp>
 #include <fmt/core.h>
+#include <scftolus/exit_codes.hpp>
 #include <string>
 
 namespace scftolus {

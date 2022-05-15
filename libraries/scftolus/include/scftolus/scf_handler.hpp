@@ -1,6 +1,6 @@
 #pragma once
-#include "descriptive_exception.hpp"
-#include "exit_codes.hpp"
+#include "scftolus/descriptive_exception.hpp"
+#include "scftolus/exit_codes.hpp"
 #include <cassert>
 #include <cstdio>
 #include <exception>

@@ -1,4 +1,4 @@
-#include "scftolus.hpp"
+#include "scftolus/scftolus.hpp"
 
 #define SCFTOLUS_VERSION "1.0.0"
 

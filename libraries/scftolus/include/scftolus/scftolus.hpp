@@ -1,6 +1,6 @@
 #pragma once
-#include "configuration.hpp"
-#include "scf_handler.hpp"
+#include "scftolus/configuration.hpp"
+#include "scftolus/scf_handler.hpp"
 #include <CLI/App.hpp>
 #include <CLI/Config.hpp>
 #include <CLI/Formatter.hpp>
