@@ -1,5 +1,5 @@
+#include "scftolus/scftolus.hpp"
 #include <gtest/gtest.h>
-#include "scftolus.hpp"
 
 namespace scftolus {
 
@@ -7,7 +7,7 @@ namespace scftolus {
 
     TEST_F(ScftolusTest, TestMainCallVersion) {
         const char* args[2] = {"path/to/exec", ""};
-        auto  retval  = scftolus::Main(2, args);
+        auto        retval  = scftolus::Main(2, args);
     }
 
 } // namespace scftolus
