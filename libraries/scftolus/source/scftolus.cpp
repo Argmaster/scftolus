@@ -13,20 +13,36 @@ namespace scftolus {
             ->required();
         app.add_flag("--version", config.version_only,
                      "Print extension version and exit.");
+        app.add_flag("--debug", config.is_debug,
+                     "Use debug mode with extensive logging.");
         CLI11_PARSE(app, argc, argv);
 
         if (config.version_only) {
             std::cout << SCFTOLUS_VERSION << std::endl;
-            return 0;
+            return (int)EXIT_CODES::SUCCESS;
         }
         try {
-            SCF_Handler scf_handler{config.get_scf_path()};
+            Main(config);
         } catch (const DescriptiveException& e) {
-            spdlog::error(e.what());
-            return e.get_exit_code();
+            auto exit_code = e.get_exit_code();
+            if (exit_code == 0) {
+                spdlog::info(e.what());
+            } else if (exit_code >= 5000 && exit_code < 10000) {
+                spdlog::warn(e.what());
+            } else if (exit_code >= 10000 && exit_code < 15000) {
+                spdlog::error(e.what());
+            }
+            return exit_code;
         }
-
-        return 0;
+        return (int)EXIT_CODES::SUCCESS;
     }
 
+    void Main(const Configuration& config) {
+        if (config.is_debug) {
+            spdlog::set_level(spdlog::level::debug);
+        } else {
+            spdlog::set_level(spdlog::level::off);
+        }
+        SCF_Handler scf_handler{config.get_scf_path()};
+    }
 } // namespace scftolus

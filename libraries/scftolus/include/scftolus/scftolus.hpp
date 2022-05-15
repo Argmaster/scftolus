@@ -8,5 +8,6 @@
 #include <string>
 
 namespace scftolus {
-    int Main(int argc, char const* argv[]);
+    int  Main(int argc, char const* argv[]);
+    void Main(const Configuration& config);
 } // namespace scftolus
